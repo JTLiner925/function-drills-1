@@ -92,7 +92,7 @@ function monthDays(month, leapYear) {
   default:
     throw new Error('Must provide a valid month.');  
   }
-return `${month} has ${numOfDays} days.`;
+  return `${month} has ${numOfDays} days.`;
 }
 console.log(monthDays('February', true));
 /*
@@ -104,3 +104,39 @@ leapYear and then it's 29.
 We also set the default to throw an error message if input doesn't match. 
 This is more concise than write the if/throw-try/catch.
 */
+
+function playGame(playerGuess) {
+
+  function numToWord(num) {
+    switch(num) {
+    case 1:
+      return 'rock';
+    case 2:
+      return 'scissors';
+    case 3:
+      return 'paper';
+    default:
+      throw new Error('Must pick number between 1-3');
+    }
+  }
+
+
+  const aiGuess = Math.floor(Math.random() * 3) + 1;
+
+  const playerWord = numToWord(playerGuess);
+  const aiWord = numToWord(aiGuess);
+
+  if (playerGuess === aiGuess) {
+    return `It's a tie! Both players guessed ${playerWord}.`;
+  } else if (
+    (playerGuess === 1 && aiGuess === 2) ||
+    (playerGuess === 2 && aiGuess === 3) ||
+    (playerGuess === 3 && aiGuess === 1)
+  ) {
+    return `Player wins! Player had ${playerWord} against ${aiWord}`;
+  } else {
+    return `AI wins! AI had ${aiWord} agains ${playerWord}`;
+  }
+
+}
+console.log(playGame(2));
