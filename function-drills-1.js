@@ -1,5 +1,6 @@
 function createGreeting(){
-console.log("Hi, my name is JT and I'm 37 years old");
+  return 'Hi, my name is JT and I\'m 37 years old';
 }
-
-createGreeting();
+//variable is invoking function, capturing returned value, and logging it out.
+const greeting1 = createGreeting();
+console.log(greeting1);
