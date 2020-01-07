@@ -63,3 +63,44 @@ word in the new array of strings, which then gives us what you see below.
  of the elements in an array. finished product looks like this:
  for loop
  */
+
+function monthDays(month, leapYear) {
+  let numOfDays;
+
+  switch (month){
+  case 'January':
+  case 'March':
+  case 'May':
+  case 'July':
+  case 'August':
+  case 'October':
+  case 'December':
+    numOfDays = 31;
+    break;
+
+  case 'April':
+  case 'June':
+  case 'September':
+  case 'November':
+    numOfDays = 30;
+    break;
+
+  case 'February':
+    numOfDays = leapYear ? 29 : 28;
+    break;
+    
+  default:
+    throw new Error('Must provide a valid month.');  
+  }
+return `${month} has ${numOfDays} days.`;
+}
+console.log(monthDays('February', true));
+/*
+create let numOfDays that is essentially empty. Using Switch/case
+in the first set if the month is ... then the numOfDays is 31.
+Second set same but numOfDays is 30.
+third we write a ternary to state that numOfDays is 28 unless it's a 
+leapYear and then it's 29.
+We also set the default to throw an error message if input doesn't match. 
+This is more concise than write the if/throw-try/catch.
+*/
