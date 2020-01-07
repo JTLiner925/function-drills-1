@@ -33,3 +33,10 @@ try {
 } catch(e) {
   console.error(e.message);
 }
+
+/*try-catch is outside of any function. Try referrs back to a function, 
+if statements are in the beginning of the function. when you throw from the if statement
+it goes to the catch in the try-catch and doesn't run anything else in 
+the function. If the if statement doesn't apply it moves on through the function
+and follows the directions through the try block.
+*/
